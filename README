@@ -1,0 +1,40 @@
+Based on an assignment in HPC module for MSc in HPC
+Based on well known Travelling Salesman Problem
+
+
+Note: This was developed early in the course and may be a bit rough around the edges
+	e.g. It has not been properly seperated into header files etc
+
+
+COMPILING:
+	make
+
+RUNNING:
+	make test	- runs berlin52, plots path and creates timing graph for 11 cities
+	./open.out	- runs TSP for an open loop (doesn't return to starting point)
+	./close.out	- runs TSP for a closed loop (returns to starting point)
+	./plot.out	- runs a closed TSP & records the min loop against number of iterations
+
+OPTIONAL FLAGS:
+	-b		- uses brute force method
+	-c [double]	- set the cooling rate {default: 0.9999}
+	-f [file]	- read in in the cities from a file instead of random (see below)
+	-g		- initialises the simulated annealing by using the greedy method first
+	-m [int]	- choose method (1-brute, 2-simulated annealing(default), 3-greedy)
+	-n [int]	- pick number of cities (randomly generated) {default: 5}
+	-o [file]	- sets the output file {default: plot.dat}
+	-r [int]	- set the reject limit base number {default: 1000}
+	-t [int]	- create datafile of timing up to a certain number of cities
+
+
+INPUT FILES:
+	works for numerous files found at http://elib.zib.de/pub/mp-testdata/tsp/tsplib/tsplib.html
+	also works on the output from a previous run
+
+PLOTTING:
+	make path	- will plot route stored in plot.dat (doesn't work for ATSP examples)
+	make time	- will plot data in timing.dat
+
+CLEANING:
+	make clean	- removes executables
+	make fullclean	- removes executables, data files and plots
